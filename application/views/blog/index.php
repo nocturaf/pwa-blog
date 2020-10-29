@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PWA Blogs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="manifest" crossorigin="use-credentials" href="./manifest.json">
+    <!-- iOS Support -->
+<!--    <link rel="apple-touch-icon" href="#path_to_icon">-->
+<!--    <meta name="apple-mobile-web-app-status-bar" content="#007bff">-->
 </head>
 <body style="background-color: #f5f5f5;">
 

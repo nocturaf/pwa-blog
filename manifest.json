@@ -1,0 +1,9 @@
+{
+  "name": "PWA Blogs",
+  "short_name": "pwa-blogs",
+  "start_url": "http://192.168.43.119/pwa-blog/",
+  "display": "standalone",
+  "background_color": "#007bff",
+  "theme_color": "#007bff",
+  "orientation": "portrait-primary"
+}
