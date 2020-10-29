@@ -31,27 +31,15 @@
 
     <div class="container mt-4">
         <h6 class="mb-3">Latest Articles</h6>
-        <div class="card mt-2">
-            <div class="card-body">
-                <h6><b>Learn VUE JS 2.0</b></h6>
-                <p>This is some text within a card body.</p>
-                <a href="#"><b>Read more</b></a>
+        <?php foreach($blog_list as $blog) { ?>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h6><b><?php echo $blog['title']; ?></b></h6>
+                    <p><?php echo substr($blog['content'], 0, 40); ?>...</p>
+                    <a href="#"><b>Read more</b></a>
+                </div>
             </div>
-        </div>
-        <div class="card mt-2">
-            <div class="card-body">
-                <h6><b>Learn VUE JS 2.0</b></h6>
-                <p>This is some text within a card body.</p>
-                <a href="#"><b>Read more</b></a>
-            </div>
-        </div>
-        <div class="card mt-2">
-            <div class="card-body">
-                <h6><b>Learn VUE JS 2.0</b></h6>
-                <p>This is some text within a card body.</p>
-                <a href="#"><b>Read more</b></a>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
