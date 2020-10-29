@@ -8,10 +8,10 @@
     <title>PWA Blogs</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
-<body>
+<body style="background-color: #f5f5f5;">
 
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">PWA Blogs</a>
+        <a class="navbar-brand" href="#"><b>PWA Blogs</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,13 +30,11 @@
 
 
     <div class="container mt-4">
-        <h6 class="mb-3">Latest Articles</h6>
         <?php foreach($blog_list as $blog) { ?>
-            <div class="card mt-2">
+            <div class="card mt-2" style="border-radius: 10px;">
                 <div class="card-body">
                     <h6><b><?php echo $blog['title']; ?></b></h6>
-                    <p><?php echo substr($blog['content'], 0, 40); ?>...</p>
-                    <a href="#"><b>Read more</b></a>
+                    <?php echo substr($blog['content'], 0, 40); ?>...
                 </div>
             </div>
         <?php } ?>
