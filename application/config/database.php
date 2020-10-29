@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
+	'hostname' => 'pgsql:host=localhost;dbname=pwablog',
+	'username' => 'nakama',
+	'password' => '123',
 	'database' => '',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
