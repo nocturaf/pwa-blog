@@ -49,12 +49,19 @@ class Admin extends CI_Controller
         $title = $this->input->post('blog_title');
         $content = $this->input->post('blog_content');
         $currentTimestamp = date('Y-m-d H:i:s');
-        $createBlog = $this->db->insert('blogs', array(
+        $newBlogData = array(
             'title' => $title,
             'content' => $content,
             'created_at' => $currentTimestamp
-        ));
+        );
+        $createBlog = $this->db->insert('blogs', $newBlogData);
         if ($createBlog) {
+            $this->sendNotification(array(
+                'title' => 'PWA Blogs',
+                'body' => 'New article published - '.$newBlogData['title'],
+                'icon' => 'http://localhost:5000/pwa-blog/public/images/pwb-192-inverse.png',
+                'badge' => 'http://localhost:5000/pwa-blog/public/images/pwb-192-inverse.png'
+            ));
             redirect('admin/index');
         }
     }
@@ -66,6 +73,27 @@ class Admin extends CI_Controller
         if ($deletePost) {
             redirect('admin/index');
         }
+    }
+
+    private function sendNotification($notificationData) {
+        $fields = array(
+            'data' => $notificationData,
+            'to' => "cr6nf0aiSxXrm2xBhw70Yr:APA91bGu05FoU1bk35JIiIGROJS9dNPfwh5VmzJf1mx73rA7iUDajpNpWLtOLG-Rnw9dMMNLxdav3z3CWeUDPnxPbcgdETDJzQok85pgrlEWKSEpapzUGbgc95ZKfRadgFvAS2loULl7"
+        );
+        $headers = array(
+            'Authorization: key=AAAAOpBx0LM:APA91bGR9UMBWMWTfNWfM0E94nmjJD_VY48h4GH-Isb4cY3-fWUcAyX7tIjrv7kPSkeG3Dt-bE-C93M8rcuQkSYzJFCuvXXv1_-NvounH5ZgP4mCneuoDEKXddpikNTWClLvvOFnRtmz', 'Content-Type: application/json'
+        );
+        $url = 'https://fcm.googleapis.com/fcm/send';
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        curl_exec($ch);
     }
 
 }

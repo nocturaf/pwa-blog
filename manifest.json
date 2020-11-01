@@ -1,9 +1,21 @@
 {
   "name": "PWA Blogs",
-  "short_name": "pwa-blogs",
+  "short_name": "PWA Blogs",
   "start_url": "http://192.168.43.119/pwa-blog/",
   "display": "standalone",
   "background_color": "#007bff",
   "theme_color": "#007bff",
-  "orientation": "portrait-primary"
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "public/images/pwb-192-main.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "public/images/pwb-512-main.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }
